@@ -19,7 +19,7 @@ I chose to build a console application because the brief mentioned that all inte
 
 1. Clone the repository
 
-git clone <your-repository-url>  
+git clone (https://github.com/tuliobonilla/restaurant-app) 
 cd restaurant-app
 
 2. Create and activate a virtual environment
