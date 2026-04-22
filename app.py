@@ -25,14 +25,6 @@ def get_restaurants():
     logging.info("Fetching restaurant data for postcode %s", postcode)
     restaurants = fetch_restaurants(postcode)
 
-    if restaurants is None:
-        return jsonify(
-            {
-                "data": [],
-                "error": "Failed to fetch data from the upstream API.",
-            }
-        ), 502
-
     formatted_restaurants = [format_restaurant(restaurant) for restaurant in restaurants[:MAX_RESULTS]]
 
     return jsonify(

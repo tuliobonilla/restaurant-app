@@ -1,5 +1,7 @@
 from typing import Any
 
+from models import Restaurant
+
 
 def format_address(address_data: dict[str, Any]) -> str:
     first_line_raw = address_data.get("firstLine", "")
@@ -18,7 +20,7 @@ def format_cuisines(cuisines_data: list[dict[str, Any]]) -> str:
     return ", ".join(cuisine_names)
 
 
-def format_restaurant(restaurant: dict[str, Any]) -> dict[str, Any]:
+def format_restaurant(restaurant: dict[str, Any]) -> Restaurant:
     return {
         "name": restaurant.get("name", "N/A"),
         "cuisines": format_cuisines(restaurant.get("cuisines", [])) or "N/A",

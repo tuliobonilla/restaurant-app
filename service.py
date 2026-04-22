@@ -21,7 +21,7 @@ def build_url(postcode: str) -> str:
     return f"{BASE_URL}/{postcode}"
 
 
-def fetch_restaurants(postcode: str) -> list[dict[str, Any]] | None:
+def fetch_restaurants(postcode: str) -> list[dict[str, Any]]:
     url = build_url(postcode)
 
     try:
@@ -31,7 +31,7 @@ def fetch_restaurants(postcode: str) -> list[dict[str, Any]] | None:
         return data.get("restaurants", [])
     except requests.exceptions.RequestException as error:
         logging.error("Failed to fetch data from the API: %s", error)
-        return None
+        return []
     except ValueError as error:
         logging.error("Failed to parse API response as JSON: %s", error)
-        return None
+        return []
